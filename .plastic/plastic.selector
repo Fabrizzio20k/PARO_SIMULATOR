@@ -1,4 +1,0 @@
-repository "PARO SIMULATOR@Fabrizzio20k@cloud"
-  path "/"
-    br "/main"
-    co "/main"
