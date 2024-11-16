@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5670581474116298151}
-  - component: {fileID: 7672260928000377726}
+  - component: {fileID: 1751666748790627044}
   m_Layer: 0
   m_Name: NPC_ANIMATION_V1
   m_TagString: Untagged
@@ -40,7 +40,7 @@ Transform:
   - {fileID: 7879911864157110922}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!82 &7672260928000377726
+--- !u!82 &1751666748790627044
 AudioSource:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -58,7 +58,7 @@ AudioSource:
   Mute: 0
   Spatialize: 1
   SpatializePostEffects: 0
-  Priority: 128
+  Priority: 40
   DopplerLevel: 1
   MinDistance: 1
   MaxDistance: 15
