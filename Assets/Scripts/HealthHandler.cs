@@ -12,7 +12,7 @@ public class HealthHandler : MonoBehaviour
     void Start()
     {
         _health = 100;
-        healthIndicator.text = _health.ToString() + "%";
+        healthIndicator.text = _health.ToString() + " HP";
         healthIndicator.color = Color.green;
     }
 

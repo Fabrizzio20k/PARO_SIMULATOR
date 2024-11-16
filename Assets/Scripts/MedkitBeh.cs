@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class MedkitBeh : MonoBehaviour
@@ -8,7 +6,7 @@ public class MedkitBeh : MonoBehaviour
     private GameObject MedKit;
     private HealthHandler healthHandler;
     private GameObject audioSource;
-    private int healthUp = 20;
+    private int healthUp = 30;
 
     void Start()
     {
