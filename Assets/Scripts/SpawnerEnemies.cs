@@ -21,10 +21,10 @@ public class SpawnerEnemies : MonoBehaviour
         }
         else
         {
-            if (Vector3.Distance(transform.position, target.position) < 21f && globals.getQuantity() < 6)
+            if (Vector3.Distance(transform.position, target.position) < 21f && globals.getQuantity() < 10)
             {
                 Instantiate(enemyPrefab, transform.position, Quaternion.identity);
-                spawnCooldown = 3f;
+                spawnCooldown = 2.5f;
                 globals.addNPC(1);
             }
         }

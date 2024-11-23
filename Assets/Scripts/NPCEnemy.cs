@@ -14,7 +14,6 @@ public class NPCEnemy : MonoBehaviour
 
     private Animator animator;
     private Renderer[] renderers; // Para cambiar el color del prefab
-    private Rigidbody rb; // Para aplicar empuje
     private bool isHit = false;
 
     void Start()
@@ -25,7 +24,6 @@ public class NPCEnemy : MonoBehaviour
         target = GameObject.FindGameObjectWithTag("Player").transform;
 
         renderers = GetComponentsInChildren<Renderer>();
-        rb = GetComponent<Rigidbody>();
         globals = GameObject.Find("Globals").GetComponent<Globals>();
     }
 
@@ -55,17 +53,12 @@ public class NPCEnemy : MonoBehaviour
         }
     }
 
-    public void TakeDamage(int damage, Vector3 pushDirection, float pushForce)
+    public void TakeDamage(int damage)
     {
         if (isHit) return;
 
         life -= damage;
 
-        // Aplicar empuje al NPC
-        if (rb != null)
-        {
-            rb.AddForce(pushDirection * pushForce, ForceMode.Impulse);
-        }
 
         // Cambiar a color rojo
         StartCoroutine(FlashRed());
@@ -75,6 +68,18 @@ public class NPCEnemy : MonoBehaviour
             globals.addNPC(-1);
             Destroy(gameObject);
         }
+    }
+
+    public void Retroceder(Vector3 playerPosition, float pushForce)
+    {
+        // Calculamos la dirección del retroceso. La dirección es opuesta al jugador.
+        Vector3 pushDirection = transform.position - playerPosition; // Dirección hacia el NPC
+
+        // Asegurarse de que el empuje no afecte en el eje Y (sin salto o flotación)
+        pushDirection.y = 0; // Esto evitará que el NPC suba o baje
+
+        // Normalizamos la dirección y multiplicamos por la fuerza para aplicar el retroceso
+        transform.position += pushDirection.normalized * pushForce * Time.deltaTime;
     }
 
     private IEnumerator FlashRed()

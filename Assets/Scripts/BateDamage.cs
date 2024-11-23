@@ -1,12 +1,8 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using Oculus.Interaction.HandGrab;
-using System;
 
 public class BateDamage : MonoBehaviour
 {
-    public float pushForce = 5f;
+    public float pushForce = 15f;
     public int damage = 10;
     public float damageCooldown = 1f;
 
@@ -21,9 +17,8 @@ public class BateDamage : MonoBehaviour
             NPCEnemy npc = other.GetComponent<NPCEnemy>();
             if (npc != null)
             {
-                Vector3 pushDirection = (other.transform.position - transform.position).normalized;
-
-                npc.TakeDamage(damage, pushDirection, pushForce);
+                npc.TakeDamage(damage);
+                npc.Retroceder(transform.position, pushForce);
 
                 nextDamageTime = Time.time + damageCooldown;
             }
