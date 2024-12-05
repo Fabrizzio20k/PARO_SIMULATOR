@@ -4,20 +4,19 @@ using UnityEngine;
 
 public class Prueba : MonoBehaviour
 {
-    // Start is called before the first frame update
     void Start()
     {
-        
+        Debug.LogWarning("Hola Mundo");
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
-    public void prueba()
+    public void pruebita()
     {
-        Debug.LogWarning("Prueba");
-    }	
+        Debug.LogWarning("Pruebita de click");
+    }
 }

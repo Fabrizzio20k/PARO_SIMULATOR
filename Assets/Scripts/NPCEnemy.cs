@@ -41,7 +41,7 @@ public class NPCEnemy : MonoBehaviour
             attackTimer -= Time.deltaTime;
             if (attackTimer <= 0f)
             {
-                healthHandler.DecreaseHealth(2);
+                healthHandler.DecreaseHealth(5);
                 attackTimer = attackCooldown;
             }
         }
@@ -66,6 +66,7 @@ public class NPCEnemy : MonoBehaviour
         if (life <= 0)
         {
             globals.addNPC(-1);
+            globals.killNPC();
             Destroy(gameObject);
         }
     }

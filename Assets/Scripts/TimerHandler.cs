@@ -34,11 +34,11 @@ public class TimerHandler : MonoBehaviour
             timerIndicator.text = string.Format("{0:D2}:{1:D2}:{2:D2}", minutes, seconds, milliseconds);
 
             // Change the timer color based on the remaining time
-            if (minutes > 5)
+            if (minutes > 3)
             {
                 timerIndicator.color = Color.white;
             }
-            else if (minutes > 2)
+            else if (minutes > 1)
             {
                 timerIndicator.color = Color.yellow;
             }
@@ -53,5 +53,10 @@ public class TimerHandler : MonoBehaviour
             timerIndicator.text = "00:00:00";
             timerIndicator.color = Color.red;
         }
+    }
+
+    public float GetRemainingTime()
+    {
+        return 300f - _timer;
     }
 }

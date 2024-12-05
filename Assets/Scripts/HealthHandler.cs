@@ -7,7 +7,11 @@ public class HealthHandler : MonoBehaviour
     [SerializeField]
     private TextMeshProUGUI healthIndicator;
 
+    [SerializeField] private FinalScreen finalScreen;
+
     private int _health;
+
+    private bool last = true;
 
     void Start()
     {
@@ -29,6 +33,12 @@ public class HealthHandler : MonoBehaviour
             default:
                 healthIndicator.color = Color.red;
                 break;
+        }
+
+        if (_health <= 0 && last)
+        {
+            last = false;
+            finalScreen.finalScreenConfig(false);
         }
     }
 
