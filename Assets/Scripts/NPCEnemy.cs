@@ -41,7 +41,7 @@ public class NPCEnemy : MonoBehaviour
             attackTimer -= Time.deltaTime;
             if (attackTimer <= 0f)
             {
-                healthHandler.DecreaseHealth(50);
+                healthHandler.DecreaseHealth(5);
                 attackTimer = attackCooldown;
             }
         }

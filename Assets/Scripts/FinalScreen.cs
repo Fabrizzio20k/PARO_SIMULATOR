@@ -27,18 +27,23 @@ public class FinalScreen : MonoBehaviour
     //Screen
     [SerializeField] private CanvasGroup finalScreen;
 
+    [SerializeField] private GameObject musica;
+
+    private AudioSource m;
+
     void Start()
     {
         playerController = GameObject.Find("OVRPlayerController").GetComponent<OVRPlayerController>();
         timerHandler = GameObject.Find("Timer").GetComponent<TimerHandler>();
         globals = GameObject.Find("Globals").GetComponent<Globals>();
+        m = musica.GetComponent<AudioSource>();
     }
 
     public void finalScreenConfig(bool win)
     {
         //Stop player
         playerController.Acceleration = 0;
-
+        m.Stop();
         //Destroy enemies
         SpawnerManager.Instance.StopAllSpawners();
         SpawnerManager.Instance.DestroyAllEnemies();
